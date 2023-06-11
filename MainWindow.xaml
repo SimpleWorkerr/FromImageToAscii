@@ -1,0 +1,55 @@
+﻿<Window x:Class="FromImageToAscii.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FromImageToAscii"
+        mc:Ignorable="d"
+        Title="AsciiConveter"
+        Name="WindowMain">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition>
+            </RowDefinition>
+            
+            <RowDefinition Height="auto">
+            </RowDefinition>
+            
+            <RowDefinition>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <GroupBox Grid.Row="0" Background="Gray">
+            <GroupBox.Header>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="30" Margin="20" Background="pink" Height="40">Программа по созданию ASCII изображений
+                </TextBlock>
+            </GroupBox.Header>
+
+            <WrapPanel Orientation="Vertical">
+                <RadioButton GroupName="FileType" Content="Видео" FontSize="15" Margin="10" Name="Video"/>
+                <RadioButton GroupName="FileType" Content="Картинка" FontSize="15" Margin="10" Name="Picture"/>
+                <TextBox Name="WidthSize" TextWrapping="Wrap" Width="100" HorizontalAlignment="Left" Margin="10 10 0 0" Text="300">
+                    <TextBox.ToolTip>
+                        Введите максимальную ширину изображение(количество символов по горизонтали)
+                    </TextBox.ToolTip>
+                </TextBox>
+                <DockPanel>
+                    <Button Content="Начать" Width="100" Margin="10" IsDefault="True" Click="StartConverting" Background="Green">
+                        <Button.ToolTip>
+                            Нажмите, чтобы начать конвертацию. Исходные данные не будут изменены
+                        </Button.ToolTip>
+                    </Button>
+                    <Button Content="Выйти" Width="100" Margin="10" IsCancel="True" Click="Exit" Background="red">
+                        <Button.ToolTip>
+                            Нажмите, чтобы завершить выполнение
+                        </Button.ToolTip>
+                    </Button>
+                </DockPanel>
+            </WrapPanel>
+        </GroupBox>
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Height="4" Background="Black"/>
+        <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible" Background="LightYellow">
+            <TextBlock Text="" Name="Result" FontSize="9" FontFamily="Consolas" HorizontalAlignment="Center"></TextBlock>
+        </ScrollViewer>
+    </Grid>
+</Window>
